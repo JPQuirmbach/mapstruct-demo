@@ -1,4 +1,4 @@
-package de.quirmbach.jp.mapstructdemo;
+package de.quirmbach.jp.mapstructdemo.mapper;
 
 import de.quirmbach.jp.mapstructdemo.dto.PersonDto;
 import de.quirmbach.jp.mapstructdemo.entity.PersonEntity;
@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.UUID;
 
 @SpringBootTest
-class MapstructDemoApplicationTests {
+class PersonMapperTest {
 
 	@Autowired
 	private IPersonMapper mapper;
