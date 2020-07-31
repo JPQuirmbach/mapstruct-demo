@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.UUID;
 
@@ -31,6 +32,12 @@ class PersonMapperTest {
 	}
 
 	@Test
+	void should_convert_null_entity_to_null_dto() {
+		PersonDto dto = mapper.convertToPersonDto(null);
+		assertNull(dto);
+	}
+
+	@Test
 	void should_convert_dto_to_entity() {
 		PersonDto dto = new PersonDto();
 		dto.setPersonId(UUID.randomUUID().toString());
@@ -43,6 +50,12 @@ class PersonMapperTest {
 		assertEquals(dto.getFirstName(), entity.getFirstName());
 		assertEquals(dto.getSurName(), entity.getLastName());
 
+	}
+
+	@Test
+	void should_convert_null_dto_to_null_entity() {
+		PersonEntity entity = mapper.convertToPersonEntity(null);
+		assertNull(entity);
 	}
 
 }
